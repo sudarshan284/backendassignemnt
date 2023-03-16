@@ -21,5 +21,4 @@ urlpatterns = [
     path('upload-csv/', MyModelUploadView.as_view(), name='csv_upload'),
     path('sort/<str:column>/<str:sort_order>/', MyModelSortView.as_view(), name='sort'),
     path('admin/', admin.site.urls),
-    path('', include('core.urls')),
 ]
