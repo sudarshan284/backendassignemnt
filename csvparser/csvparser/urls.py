@@ -14,11 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import include,path
 from core.views import MyModelUploadView,MyModelSortView
 
 urlpatterns = [
     path('upload-csv/', MyModelUploadView.as_view(), name='csv_upload'),
     path('sort/<str:column>/<str:sort_order>/', MyModelSortView.as_view(), name='sort'),
     path('admin/', admin.site.urls),
+    path('', include('core.urls')),
 ]
